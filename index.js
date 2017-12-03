@@ -3,30 +3,8 @@ const admin = require('firebase-admin');
 const serviceAccount = require('./firestoring-firebase-adminsdk-bwl1v-cfdee1cc2f.json');
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  apiKey: 'AIzaSyAnczqINTOIlorrzHbSogUsJCS17Ym6Xxo',
-  authDomain: 'firestoring.firebaseapp.com',
-  projectId: 'firestoring'
+  credential: admin.credential.cert(serviceAccount)
 });
-
-firebase
-  .firestore()
-  .enablePersistence()
-  .then(function() {
-    // Initialize Cloud Firestore through firebase
-    let database = firebase.firestore();
-  })
-  .catch(function(err) {
-    if (err.code == 'failed-precondition') {
-      // Multiple tabs open, persistence can only be enabled
-      // in one tab at a a time.
-      console.log('Multiple Tabs Open');
-    } else if (err.code == 'unimplemented') {
-      // The current browser does not support all of the
-      // features required to enable persistence
-      console.log('No Browser Support');
-    }
-  });
 
 // admin.initializeApp({
 //   credential: admin.credential.applicationDefault()
