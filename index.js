@@ -14,7 +14,7 @@ firebase
   .enablePersistence()
   .then(function() {
     // Initialize Cloud Firestore through firebase
-    var db = firebase.firestore();
+    let database = firebase.firestore();
   })
   .catch(function(err) {
     if (err.code == 'failed-precondition') {
